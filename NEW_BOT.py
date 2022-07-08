@@ -31,7 +31,7 @@ def store_last_seen(FILE_NAME, last_seen_id):
 def reply():
     tweets = api.mentions_timeline(since_id=read_last_seen(FILE_NAME),tweet_mode='extended')
     for tweet in reversed(tweets):
-      if '#panchayat' in tweet.full_text:
+      if '#IIC' in tweet.full_text:
         print(str(tweet.id) + ' - ' + tweet.full_text)
         api.update_status('@'+ tweet.user.screen_name + " All Good",in_reply_to_status_id=tweet.id)
         api.create_favorite(tweet.id)
